@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Aws</base>
+  <class>MailingConfigSet</class>
+  <name>civicrm_mailing_config_set</name>
+  <comment>SES open/click tracking configuration set.</comment>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <comment>Unique MailingConfigSet ID</comment>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>mailing_id</name>
+    <type>int unsigned</type>
+    <title>Mailing Id</title>
+    <required>true</required>
+    <comment>FK to Mailing</comment>
+  </field>
+  <foreignKey>
+    <name>mailing_id</name>
+    <table>civicrm_mailing</table>
+    <key>id</key>
+    <onDelete>CASCADE</onDelete>
+  </foreignKey>
+
+  <field>
+    <name>config_set</name>
+    <type>text</type>
+    <title>Config Set</title>
+    <pseudoconstant>
+      <callback>CRM_Aws_Ses_BAO_Ses::getConfigurationSets</callback>
+    </pseudoconstant>
+    <html>
+      <type>Select</type>
+    </html>
+    <comment>The SES configuration set name for open/click tracking.</comment>
+  </field>
+
+  <field>
+    <name>is_active</name>
+    <title>SES tracking enabled?</title>
+    <type>boolean</type>
+    <default>0</default>
+    <comment>Is SES tracking enabled for this mailing?</comment>
+    <html>
+      <type>CheckBox</type>
+    </html>
+  </field>
+
+</table>

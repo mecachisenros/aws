@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/admin/setting/preferences/aws-credentials</path>
+    <title>AWS User Credentials</title>
+    <page_callback>CRM_Admin_Form_Generic</page_callback>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/admin/setting/preferences/aws-ses</path>
+    <title>SES Settings</title>
+    <page_callback>CRM_Admin_Form_Generic</page_callback>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/admin/setting/preferences/aws-credentials</path>
+    <title>CiviEvent Component Settings</title>
+    <page_callback>CRM_Admin_Form_Generic</page_callback>
+  </item>
+  <item>
+    <path>civicrm/aws-sns/webhook</path>
+    <page_callback>CRM_Aws_Sns_Page_Webhook</page_callback>
+    <title>AWS SNS Webhook</title>
+    <access_callback>1</access_callback>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identities</path>
+    <page_callback>CRM_Aws_Ses_Page_Identities</page_callback>
+    <title>AWS SES - Identites</title>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identities/ajax/get</path>
+    <page_callback>CRM_Aws_Ses_Page_AJAX::getDataTableForamattedIdentities</page_callback>
+    <title>AWS SES - Verified Identites</title>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identity/details</path>
+    <page_callback>CRM_Aws_Ses_Page_IdentityDetails</page_callback>
+    <title>Identity details</title>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identity/add</path>
+    <page_callback>CRM_Aws_Ses_Form_Identity</page_callback>
+    <page_arguments>mode=1</page_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identity/edit</path>
+    <page_callback>CRM_Aws_Ses_Form_Identity</page_callback>
+    <page_arguments>mode=2</page_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identity/view</path>
+    <page_callback>CRM_Aws_Ses_Form_Identity</page_callback>
+    <page_arguments>mode=4</page_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aws-ses/identity/delete</path>
+    <page_callback>CRM_Aws_Ses_Form_Identity</page_callback>
+    <page_arguments>mode=8</page_arguments>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+</menu>

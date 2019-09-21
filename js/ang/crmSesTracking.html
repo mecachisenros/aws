@@ -1,0 +1,30 @@
+<div crm-mailing="mailing">
+  <div
+  crm-ui-field="{name: 'subform.track_with_ses', title: ts('Track with AWS SES/SNS')}"
+  crm-layout="checkbox">
+    <input
+    crm-ui-id="subform.track_with_ses"
+    name="track_with_ses"
+    type="checkbox"
+    ng-model="mailingConfigSet.is_active"
+    ng-true-value="1"
+    ng-false-value="0" />
+  </div>
+  <div
+    crm-ui-field="{name: 'subform.mailing_config_set', title: ts('Configuration set')}"
+    ng-show="mailingConfigSet.is_active">
+    <select
+    crm-ui-id="subform.mailing_config_set"
+    crm-ui-select="{dropdownAutoWidth : true, allowClear: true, placeholder: ts('-select a config set-')}"
+    name="config_set"
+    ng-model="mailingConfigSet.config_set"
+    ng-required="mailingConfigSet.is_active">
+      <option value=""></option>
+      <option
+      ng-repeat="(key, value) in configSetOptions"
+      value="{{key}}">
+        {{value}}
+      </option>
+    </select>
+  </div>
+</div>
