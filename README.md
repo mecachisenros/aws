@@ -93,7 +93,7 @@ The rest of fields are optional, an Identity will be created with it's SNS topic
 * `example.org` => `example_org`
 * `me@example.org` => `me_at_example_org`
 
-Once saved you can view the verfication token and dkim tokens that you must add to your domian's DNS records by clicking on the identity name.
+Once saved you can view the verfication token and dkim tokens that you must add to your domain's DNS records by clicking on the identity name.
 
 ![Identity details](./images/identity_details.png)
 

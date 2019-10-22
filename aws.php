@@ -165,3 +165,20 @@ function aws_civicrm_entityTypes(&$entityTypes) {
 function aws_civicrm_themes(&$themes) {
   _aws_civix_civicrm_themes($themes);
 }
+
+/**
+ * Implements hook_civicrm_alterSettingsMetadata
+ */
+function aws_civicrm_alterSettingsMetaData(&$settingsMetaData, $domainID, $profile) {
+  // Set settings readonly if they are set via environment variables
+  $vars = [
+    'aws_access_key' => 'CIVICRM_AWS_ACCESS_KEY',
+    'aws_secret_key' => 'CIVICRM_AWS_SECRET_KEY',
+    'aws_region' => 'CIVICRM_AWS_REGION',
+  ];
+  foreach ($vars as $setting => $envVar) {
+    if (defined($envVar)) {
+      $settingsMetaData[$setting]['html_attributes']['readonly'] = TRUE;
+    }
+  }
+}

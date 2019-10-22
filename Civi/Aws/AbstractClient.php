@@ -90,7 +90,7 @@ abstract class AbstractClient {
     return [
       'version' => 'latest',
       'region' => defined('CIVICRM_AWS_REGION')
-        ? CIVICRM_AWS_SES_REGION
+        ? CIVICRM_AWS_REGION
         : \Civi::settings()->get('aws_region'),
       'credentials' => $credentials,
     ];
