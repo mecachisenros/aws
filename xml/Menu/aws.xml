@@ -14,8 +14,9 @@
   </item>
   <item>
     <path>civicrm/admin/setting/preferences/aws-credentials</path>
-    <title>CiviEvent Component Settings</title>
+    <title>AWS User Credentials</title>
     <page_callback>CRM_Admin_Form_Generic</page_callback>
+    <access_arguments>administer CiviCRM</access_arguments>
   </item>
   <item>
     <path>civicrm/aws-sns/webhook</path>
