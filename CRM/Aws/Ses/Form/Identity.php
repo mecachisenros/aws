@@ -202,7 +202,7 @@ class CRM_Aws_Ses_Form_Identity extends CRM_Core_Form {
     $defaults = [];
 
     if ($this->isEditContext() || $this->isViewContext()) {
-      $identity = Civi\Aws\CiviApi::try(
+      $identity = civicrm_api3(
         $this->getDefaultEntity(),
         'getsingle',
         ['Identity' => $this->getEntityId() ?? CRM_Utils_Request::retrieve('id', 'String')]
