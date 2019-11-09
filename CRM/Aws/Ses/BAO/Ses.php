@@ -160,7 +160,7 @@ class CRM_Aws_Ses_BAO_Ses {
         ],
         'api.default' => 1,
         'localizable' => 0,
-        'description' => E::ts('Email Feedback Forwarding.'),
+        'description' => E::ts('Amazon SES can send you email when you receive bounces and complaints by using a process called email feedback forwarding.'),
         'actions' => ['create', 'get'],
       ],
       'HeadersInBounceNotificationsEnabled' => [
@@ -222,7 +222,7 @@ class CRM_Aws_Ses_BAO_Ses {
         'api.return' => 1,
         'api.filter' => 0,
         'localizable' => 0,
-        'description' => E::ts('The identity mail from domain.'),
+        'description' => E::ts('Amazon SES sets the MAIL FROM domain for the messages that you send to a default value unless you specify your own domain.'),
         'actions' => ['create', 'get'],
       ],
     ];
