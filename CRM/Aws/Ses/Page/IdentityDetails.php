@@ -22,6 +22,20 @@ class CRM_Aws_Ses_Page_IdentityDetails extends CRM_Core_Page {
 
     unset($identity['id'], $identity['Identity'], $identity['Type']);
 
+    if (isset($identity['Topics'])) {
+      foreach ($identity['Topics'] as $topicKey => $topicValue) {
+        if (!isset($identity['Subscriptions'])) {
+          $identity['Subscriptions'] = [];
+        }
+        if (isset($topicValue['Subscriptions'])) {
+          foreach ($topicValue['Subscriptions'] as $subscriptionKey => $subscriptionValue) {
+            $identity['Subscriptions'][] = $subscriptionValue['Endpoint'];
+          }
+        }
+        $identity['Subscriptions'] = implode(', ', $identity['Subscriptions']);
+      }
+      unset($identity['Topics']);
+    }
     $this->assign(
       'identity',
       $identity
