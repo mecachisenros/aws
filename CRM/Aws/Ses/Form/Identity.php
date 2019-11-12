@@ -160,6 +160,21 @@ class CRM_Aws_Ses_Form_Identity extends CRM_Core_Form {
 
     $values = $this->exportValues();
 
+    // FIXME
+    // unchecked checkbox fields don't seem to save,
+    // I can reproduce on core forms...
+    array_map(
+      function($element) use (&$values) {
+        if ($element->getType() != 'checkbox') {
+          return;
+        }
+        if (!in_array($element->getName(), array_keys($values))) {
+          $values[$element->getName()] = 0;
+        }
+      },
+      $this->_elements
+    );
+
     if ($this->isCreateContext() || $this->isEditContext()) {
 
       $identity = $this->callApi($values);
