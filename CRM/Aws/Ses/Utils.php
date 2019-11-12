@@ -26,6 +26,8 @@ class CRM_Aws_Ses_Utils {
       ];
     }
 
+    ksort($identities);
+
     return array_reduce(
       $identities,
       function($list, $identity) {
